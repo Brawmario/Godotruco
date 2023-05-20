@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://oo4lofuv55xf"]
+
+[ext_resource type="Texture2D" uid="uid://5pqcdpd1uvlp" path="res://assets/cardsLarge_tilemap_packed.png" id="1_au3h2"]
+[ext_resource type="Script" path="res://card/card.gd" id="1_sbg4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skvr2"]
+size = Vector2(63, 90)
+
+[node name="Card" type="Area2D"]
+script = ExtResource("1_sbg4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_au3h2")
+hframes = 14
+vframes = 4
+frame = 27
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4.76837e-07)
+shape = SubResource("RectangleShape2D_skvr2")
