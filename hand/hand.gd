@@ -2,7 +2,10 @@ class_name Hand
 extends Node2D
 
 
+signal card_picked(card: Card)
+
 @export var width := 250.0
+@export var player := -1
 
 
 func get_cards() -> Array[Card]:
@@ -13,9 +16,11 @@ func get_cards() -> Array[Card]:
 
 func add_card(card: Card) -> void:
 	Utils.unparent_node(card)
+	card.from_player = player
 	add_child(card)
 	card.mouse_entered.connect(_on_card_mouse_entered.bind(card))
 	card.mouse_exited.connect(_on_card_mouse_exited.bind(card))
+	card.mouse_clicked.connect(_on_card_mouse_clicked.bind(card))
 	_update_cards_position()
 
 
@@ -23,6 +28,7 @@ func remove_card(card: Card) -> void:
 	Utils.unparent_node(card)
 	card.mouse_entered.disconnect(_on_card_mouse_entered.bind(card))
 	card.mouse_exited.disconnect(_on_card_mouse_exited.bind(card))
+	card.mouse_clicked.disconnect(_on_card_mouse_clicked.bind(card))
 	card.highlighted = false
 	_update_cards_position()
 
@@ -41,3 +47,7 @@ func _on_card_mouse_entered(card: Card) -> void:
 
 func _on_card_mouse_exited(card: Card) -> void:
 	card.highlighted = false
+
+
+func _on_card_mouse_clicked(card: Card) -> void:
+	card_picked.emit(card)

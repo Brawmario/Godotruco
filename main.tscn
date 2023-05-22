@@ -33,22 +33,37 @@ rotation = 1.5708
 
 [node name="1" parent="Hands" instance=ExtResource("1_8omkw")]
 position = Vector2(360, 420)
+player = 1
 
 [node name="2" parent="Hands" instance=ExtResource("1_8omkw")]
 position = Vector2(674, 224)
 rotation = -1.5708
+player = 2
 
 [node name="3" parent="Hands" instance=ExtResource("1_8omkw")]
 position = Vector2(364, 45)
 rotation = 3.14159
+player = 3
 
 [node name="4" parent="Hands" instance=ExtResource("1_8omkw")]
 position = Vector2(39, 234)
 rotation = 1.5708
+player = 4
 
 [node name="ViraContainer" type="Marker2D" parent="."]
 position = Vector2(314, 207)
 rotation = -0.71733
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(357, 321)
+[node name="PlayedCards" type="Node2D" parent="."]
+
+[node name="CardContainer1" type="Marker2D" parent="PlayedCards"]
+position = Vector2(446, 346)
+
+[node name="CardContainer2" type="Marker2D" parent="PlayedCards"]
+position = Vector2(516, 185)
+
+[node name="CardContainer3" type="Marker2D" parent="PlayedCards"]
+position = Vector2(240, 129)
+
+[node name="CardContainer4" type="Marker2D" parent="PlayedCards"]
+position = Vector2(159, 289)
