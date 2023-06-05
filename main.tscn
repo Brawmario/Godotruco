@@ -67,3 +67,10 @@ position = Vector2(240, 129)
 
 [node name="CardContainer4" type="Marker2D" parent="PlayedCards"]
 position = Vector2(159, 289)
+
+[node name="PlayerIndicator" type="Node2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="Line2D" type="Line2D" parent="PlayerIndicator"]
+position = Vector2(-46, -145)
+points = PackedVector2Array(95, 3, 66.7846, 39.2769, 46, 66, 0, 3, 95, 3)
